@@ -16,6 +16,9 @@
                     <li class="nav-item">
                         <router-link class="nav-link text-muted" to="/About">About</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link text-muted" to="/Store">Store</router-link>
+                    </li>
                 </ul>
             </div>
             <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse"
