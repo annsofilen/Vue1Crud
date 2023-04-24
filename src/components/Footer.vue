@@ -5,27 +5,27 @@
           <div class="col-md-4">
             <h5>Contact Us</h5>
             <address>
-              123 Main St.<br>
-              Anytown, USA 12345<br>
+              Abc123 st.<br>
+              Anytown, Åland, Finland 12345<br>
               Phone: (123) 456-7890<br>
-              Email: info@example.com
+              Email: annsofi-store@aland.com
             </address>
           </div>
           <div class="col-md-4">
             <h5>Follow Us</h5>
             <ul class="list-unstyled">
-              <li><a href="#">Facebook</a></li>
-              <li><a href="#">Twitter</a></li>
-              <li><a href="#">Instagram</a></li>
+              <li><a href="#"><i class="bi bi-facebook"></i></a></li>
+              <li><a href="#"><i class="bi bi-twitter"></i></a></li>
+              <li><a href="#"><i class="bi bi-instagram"></i></a></li>
             </ul>
           </div>
           <div class="col-md-4">
             <h5>Site Map</h5>
             <ul class="list-unstyled">
               <li><a href="#">Home</a></li>
-              <li><a href="#">Products</a></li>
-              <li><a href="#">About Us</a></li>
-              <li><a href="#">Contact Us</a></li>
+              <li><a href="#store">Store</a></li>
+              <li><a href="#about">About Us</a></li>
+             
             </ul>
           </div>
         </div>
@@ -38,6 +38,8 @@
       </div>
     </footer>
   </template>
+
+  <script setup></script>
   
   <style>
   .footer {
