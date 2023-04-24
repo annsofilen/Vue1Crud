@@ -2,6 +2,8 @@
 import Header from './components/Header.vue';
 import Footer from './components/footer.vue';
 
+import 'bootstrap-icons/font/bootstrap-icons.css';
+
 </script>
 
 <template>
