@@ -12,15 +12,20 @@ class OrderService {
         return await axios.get(USER_API_URL + 'api/orders');
     }
 
-    async getAllOrdersForUser() {
-        //let result = await axios.get(USER_API_URL + 'api/orders');
-        //console.log(result);
-        return await axios.get(USER_API_URL + 'api/orders', { headers: AuthService.authHeader() });
+    async getProductsOfId(order) {
+        console.log(await axios.get(USER_API_URL + 'api/products/'+order.id));
+        return await axios.get(USER_API_URL + 'api/products/'+order.id);
     }
 
-    async postOrderForUser(order) {
-        return await axios.post(USER_API_URL + 'api/orders', order, { headers: AuthService.authHeader() });
-    }
+    // async getAllOrdersForUser() {
+    //     //let result = await axios.get(USER_API_URL + 'api/orders');
+    //     //console.log(result);
+    //     return await axios.get(USER_API_URL + 'api/orders', { headers: AuthService.authHeader() });
+    // }
+
+    // async postOrderForUser(order) {
+    //     return await axios.post(USER_API_URL + 'api/orders', order, { headers: AuthService.authHeader() });
+    // }
 
 
 }

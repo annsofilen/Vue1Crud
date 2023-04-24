@@ -10,7 +10,7 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders" :key="order._id">
-                    <td @click="selectOrder">{{ order.id }}</td>
+                    <td @click="selectOrder(order)">{{ order.id }}</td>
                     <td>{{ order.createdAt }}</td>
                 </tr>
             </tbody>
@@ -26,7 +26,8 @@ import OrderService from '../services/OrderService'
 export default {
     data() {
         return {
-            orders: []
+            orders: [],
+            selectedOrder: null
         };
     },
     mounted() {
@@ -35,14 +36,16 @@ export default {
     methods: {
         updateMyOrders() {
             OrderService.getEverything()
-            .then((res) => {
-                this.orders = res.data.data
-            });
+                .then((res) => {
+                    this.orders = res.data.data
+                });
             console.log('orders collected ' + this.orders);
 
         },
-        selectOrder() {
-
+        selectOrder(order) {
+            this.selectedOrder = order;
+            console.log('selected order: ' + order.id);
+            OrderService.getProductsOfId(order)
         }
     }
 };

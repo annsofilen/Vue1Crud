@@ -32,7 +32,7 @@
             <hr>
             <div class="row">
                 <div class="col-md-12">
-                    <p class="text-center">&copy; 2023 Your Company Name. All rights reserved.</p>
+                    <p class="text-center">&copy; 2023 Ann-Sofi´s Store. All rights reserved.</p>
                 </div>
             </div>
         </div>
