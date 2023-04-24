@@ -12,11 +12,12 @@
     "test": "jest --reporters='default' --reporters='jest-junit' --coverage --coverageReporters='cobertura'"
   },
   "jest-junit": {
-      "outputDirectory": "./testResults",
-      "outputName": "TEST-RESULT.xml"
+    "outputDirectory": "./testResults",
+    "outputName": "TEST-RESULT.xml"
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.4",
     "jest": "^29.5.0",
     "jest-junit": "^15.0.0",
     "jest-junit-reporter": "^1.1.0",
@@ -28,4 +29,3 @@
     "vite": "^4.1.4"
   }
 }
-
