@@ -5,7 +5,7 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 <template>
     <nav class="navbar navbar-expand-sm bg-light navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand text-muted" href="#">Ann-Sofis Store <i class="bi bi-peace"></i></a>
+            <a class="navbar-brand text-muted" href="#">Ann-Sofi´s Store <i class="bi bi-peace"></i></a>
             <div class="collapse navbar-collapse" id="collapsibleNavbar">
                 <ul class="navbar-nav mr-auto mt-2 ">
                     <!-- use router-link component for navigation. -->
@@ -19,6 +19,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link text-muted" to="/Store">Store</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link text-muted" to="/MyOrders">My Orders</router-link>
                     </li>
                 </ul>
             </div>

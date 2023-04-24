@@ -28,8 +28,11 @@
             <li class="list-group-item" v-for="(product, index) in cart" :key="index">
               {{ product.name }} - {{ product.price | currency }} - {{ product.brand }} - {{ product.description }}
               <button type="button" class="btn btn-danger btn-sm float-right" @click="removeProduct(index)">Remove</button>
+
             </li>
           </ul>
+          <button type="button" class="btn btn-dark btn-sm float-right" @click="placeOrder(index)">Order!</button>
+
         </div>
       </div>
     </div>
