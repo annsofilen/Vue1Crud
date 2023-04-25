@@ -12,18 +12,27 @@
                 <tr v-for="order in orders" :key="order._id">
                     <td @click="selectOrder(order)">{{ order.id }}</td>
                     <td>{{ order.createdAt }}</td>
+                    <td>remove</td>
                 </tr>
             </tbody>
         </table>
         <button type="button" class="btn btn-dark btn-sm float-right" @click="updateMyOrders(index)">Refresh!!</button>
 
     </div>
+
+    <div>
+        <Product :products="this.selectedOrder"></Product>
+    </div>
 </template>
   
 <script>
 import OrderService from '../services/OrderService'
+import Product from './Product.vue';
 
 export default {
+    components: {
+        Product,
+    },
     data() {
         return {
             orders: [],
@@ -43,9 +52,13 @@ export default {
 
         },
         selectOrder(order) {
-            this.selectedOrder = order;
-            console.log('selected order: ' + order.id);
+            //this.selectedOrder = order;
+           
             OrderService.getProductsOfId(order)
+            .then((res)=> {
+                this.selectedOrder= res.data.data
+                console.log('selected order: ' + JSON.stringify(this.selectedOrder));
+            })
         }
     }
 };

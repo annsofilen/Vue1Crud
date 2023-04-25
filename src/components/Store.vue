@@ -39,6 +39,8 @@
   </template>
   
   <script>
+import OrderService from '../services/OrderService';
+
   export default {
     data() {
       return {
