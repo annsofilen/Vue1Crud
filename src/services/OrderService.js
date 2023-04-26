@@ -13,8 +13,19 @@ class OrderService {
     }
 
     async getProductsOfId(order) {
-        console.log(await axios.get(USER_API_URL + 'api/products/'+order.id));
-        return await axios.get(USER_API_URL + 'api/products/'+order.id);
+        console.log(await axios.get(USER_API_URL + 'api/products/' + order.id));
+        return await axios.get(USER_API_URL + 'api/products/' + order.id);
+    }
+
+    async postOrder(order) {
+        console.log(await axios.post(USER_API_URL + 'api/orders/'));
+        return await axios.post(USER_API_URL + 'api/orders/', order)
+    }
+
+    async deleteOrder(orderid) {
+        console.log(await axios.delete(USER_API_URL + 'api/orders/' + orderid));
+        console.log(('delete:::' + USER_API_URL + 'api/orders/'+orderid));
+        return await axios.delete(USER_API_URL + 'api/orders/'+ orderid)
     }
 
     // async getAllOrdersForUser() {

@@ -12,7 +12,7 @@
                 <tr v-for="order in orders" :key="order._id">
                     <td @click="selectOrder(order)">{{ order.id }}</td>
                     <td>{{ order.createdAt }}</td>
-                    <td>remove</td>
+                    <td ><div  v-if="selectedOrder" @click="removeOrder(order.id)">remove</div></td>
                 </tr>
             </tbody>
         </table>
@@ -26,7 +26,8 @@
 </template>
   
 <script>
-import OrderService from '../services/OrderService'
+import OrderService from '../services/OrderService';
+import ProductService from '../services/ProductService';
 import Product from './Product.vue';
 
 export default {
@@ -53,12 +54,16 @@ export default {
         },
         selectOrder(order) {
             //this.selectedOrder = order;
-           
-            OrderService.getProductsOfId(order)
-            .then((res)=> {
-                this.selectedOrder= res.data.data
-                console.log('selected order: ' + JSON.stringify(this.selectedOrder));
-            })
+
+            ProductService.getProductsOfId(order)
+                .then((res) => {
+                    this.selectedOrder = res.data.data
+                    console.log('selected order: ' + JSON.stringify(this.selectedOrder));
+                })
+        },
+        async removeOrder(orderId) {
+            console.log('delete: ' + orderId)
+            await OrderService.deleteOrder(orderId)
         }
     }
 };

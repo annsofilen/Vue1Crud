@@ -7,16 +7,27 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
 </script>
 
 <template>
-  <main>
-    <Header></Header>
-    <router-view></router-view> <!-- make the router views visible -->
-    <Footer></Footer>
-  </main>
+  <div class="container">
+    <main>
+      <Header></Header>
+      <div class="content">
+        <router-view></router-view> <!-- make the router views visible -->
+      </div>
+
+    </main>
+    
+  </div>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
+}
+
+.content {
+  flex: 1;
+  min-height: calc(100vh - 200px);
+  /* adjust the value based on your footer height */
 }
 
 .logo {
@@ -40,5 +51,25 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
-}
-</style>
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex-grow: 1;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
+  footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    /* set the height of your footer */
+  }
+}</style>
