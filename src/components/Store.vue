@@ -76,6 +76,7 @@ export default {
                 //user: user
             }
             let orderPost = (await OrderService.postOrder(order)).data.data.id
+           // console.log(orderPost)
 
 
             for (let prod of this.cart) {
@@ -86,11 +87,10 @@ export default {
                     description: prod.description,
                     orderId: orderPost
                 }
-                console.log(newProduct)
+                //console.log((newProduct))
                 JSON.stringify(newProduct)
-                ProductService.postProduct(JSON.stringify(newProduct)
-                );
-                //ProductService.postProduct(newProduct);
+                // ProductService.postProduct(JSON.stringify(newProduct));
+                ProductService.postProduct(newProduct);
 
             }
         }

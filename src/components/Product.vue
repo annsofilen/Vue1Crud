@@ -15,8 +15,8 @@
                     <td>{{ product.brand }}</td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.description }}</td>
-                    <td>update</td>
-                    <td>remove</td>
+                    <td><button class="btn btn-sm btn-dark">Update</button></td>
+                    <td><button class="btn btn-sm btn-danger">Remove</button></td>
                 </tr>
             </tbody>
         </table>

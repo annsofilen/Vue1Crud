@@ -14,7 +14,7 @@ class ProductService {
     }
 
     async postProduct(product) {
-        console.log('product in service: ' + JSON.stringify(product))
+        console.log('product sent from productService: ' + JSON.stringify(product))
         console.log(await axios.post(USER_API_URL + 'api/products/'));
         return await axios.post(USER_API_URL + 'api/products/', JSON.stringify(product), {
             headers: {

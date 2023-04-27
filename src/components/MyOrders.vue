@@ -10,9 +10,12 @@
             </thead>
             <tbody>
                 <tr v-for="order in orders" :key="order._id">
-                    <td @click="selectOrder(order)">{{ order.id }}</td>
+                    <td @click="selectOrder(order)"  class="text-primary cursor-pointer">{{ order.id }}</td>
                     <td>{{ order.createdAt }}</td>
-                    <td ><div  v-if="selectedOrder" @click="removeOrder(order.id)">remove</div></td>
+                    <td><button  @click="removeOrder(order.id)" class="btn btn-sm btn-danger">Remove</button></td>
+                    <!-- <td>
+                        <div v-if="selectedOrder" @click="removeOrder(order.id)">remove</div>
+                    </td> -->
                 </tr>
             </tbody>
         </table>
