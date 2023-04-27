@@ -15,8 +15,8 @@
                     <td>{{ product.brand }}</td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.description }}</td>
-                    <td><button class="btn btn-sm btn-dark">Update</button></td>
-                    <td><button class="btn btn-sm btn-danger">Remove</button></td>
+                    <td><button class="btn btn-sm btn-dark" @click="updateProduct(product.id)">Update</button></td>
+                    <td><button class="btn btn-sm btn-danger" @click="removeProduct(product.id)">Remove</button></td>
                 </tr>
             </tbody>
         </table>
@@ -45,6 +45,7 @@
 </template>
   
 <script>
+import ProductService from '../services/ProductService';
 export default {
     props: {
         products: {
@@ -63,6 +64,14 @@ export default {
         }
     },
     methods: {
+        removeProduct(productId) {
+            console.log(productId)
+        },
+
+        updateProduct(productId) {
+            console.log(productId)
+
+        }
 
     }
 };
