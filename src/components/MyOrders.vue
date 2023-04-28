@@ -41,8 +41,8 @@ export default {
         return {
             orders: [],
             selectedOrder: [
-            
-        ]
+
+            ]
         };
     },
     mounted() {
@@ -69,6 +69,7 @@ export default {
         async removeOrder(orderId) {
             console.log('delete: ' + orderId)
             await OrderService.deleteOrder(orderId)
+            this.router.push('/MyOrders')
         }
     }
 };

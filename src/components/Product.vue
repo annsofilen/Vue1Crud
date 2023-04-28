@@ -1,5 +1,6 @@
 <template>
     <div class="container my-5">
+        <h4>Products in selected order</h4>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -19,31 +20,36 @@
                     <td>{{ product.price }}</td>
                     <td>{{ product.description }}</td>
                     <td>{{ product.id }}</td>
-                    <td><button class="btn btn-sm btn-dark" @click="updateProduct(product.id)">Update</button></td>
+                    <td><button class="btn btn-sm btn-dark" @click="updateProduct(product)">Update</button></td>
                     <td><button class="btn btn-sm btn-danger" @click="removeProduct(product.id)">Remove </button></td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="container my-5">
-        <form>
+        <h4>Product selected to be updated</h4>
+        <form v-if="selectedProduct">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" v-model="newProduct.name">
+                <input type="text" :placeholder="this.selectedProduct.name" class="form-control" id="name"
+                    v-model="newProduct.name">
             </div>
             <div class="form-group">
                 <label for="price">Price</label>
-                <input type="number" class="form-control" id="price" v-model="newProduct.price">
+                <input type="number" :placeholder="this.selectedProduct.price" class="form-control" id="price"
+                    v-model="newProduct.price">
             </div>
             <div class="form-group">
                 <label for="brand">Brand</label>
-                <input type="text" class="form-control" id="brand" v-model="newProduct.brand">
+                <input type="text" :placeholder="this.selectedProduct.brand" class="form-control" id="brand"
+                    v-model="newProduct.brand">
             </div>
             <div class="form-group">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" rows="3" v-model="newProduct.description"></textarea>
+                <textarea class="form-control" :placeholder="this.selectedProduct.description" id="description" rows="3"
+                    v-model="newProduct.description"></textarea>
             </div>
-            <button type="button" class="btn btn-primary" @click="addProduct">Add to Cart</button>
+            <button type="button" class="btn btn-primary" @click="submitUpdate">Update product</button>
         </form>
     </div>
 </template>
@@ -64,7 +70,8 @@ export default {
                 price: '',
                 brand: '',
                 description: ''
-            }
+            },
+            selectedProduct: null
         }
     },
     methods: {
@@ -72,14 +79,24 @@ export default {
             ProductService.deleteProduct(productId)
         },
 
-        updateProduct(productId) {
-            console.log(productId)
+        updateProduct(product) {
+            console.log(product.id)
+            this.selectedProduct = product;
+        },
 
+        submitUpdate() {
+            let updatedObject = this.selectedProduct;
+            updatedObject.name = this.newProduct.name;
+            updatedObject.brand = this.newProduct.brand;
+            updatedObject.price = this.newProduct.price;
+            updatedObject.description = this.newProduct.description;
+            console.log(updatedObject);
+            ProductService.updateProduct(updatedObject)
         }
 
-    }, 
+    },
     mounted() {
-        console.log(this.products)
+
     }
 };
 </script>

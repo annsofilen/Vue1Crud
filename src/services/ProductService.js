@@ -24,8 +24,14 @@ class ProductService {
     }
 
     async deleteProduct(productId) {
-        console.log(USER_API_URL + 'api/products/'+productId);
-        return await axios.delete(USER_API_URL + 'api/products/'+productId)
+        console.log(USER_API_URL + 'api/products/' + productId);
+        return await axios.delete(USER_API_URL + 'api/products/' + productId)
+    }
+
+    async updateProduct(updateObject) {
+        console.log('product sent from productService to update: ' + JSON.stringify(updateObject))
+        console.log(USER_API_URL + 'api/products/' + updateObject.id)
+        return await axios.put(USER_API_URL + 'api/products/'+updateObject.id, (updateObject))
     }
 
 

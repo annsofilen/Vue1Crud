@@ -23,7 +23,6 @@ class OrderService {
     }
 
     async deleteOrder(orderid) {
-        console.log(await axios.delete(USER_API_URL + 'api/orders/' + orderid));
         console.log(('delete:::' + USER_API_URL + 'api/orders/'+orderid));
         return await axios.delete(USER_API_URL + 'api/orders/'+ orderid)
     }
