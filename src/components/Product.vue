@@ -7,6 +7,9 @@
                     <th>Brand</th>
                     <th>Price</th>
                     <th>Description</th>
+                    <th>ID</th>
+                    <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -15,8 +18,9 @@
                     <td>{{ product.brand }}</td>
                     <td>{{ product.price }}</td>
                     <td>{{ product.description }}</td>
+                    <td>{{ product.id }}</td>
                     <td><button class="btn btn-sm btn-dark" @click="updateProduct(product.id)">Update</button></td>
-                    <td><button class="btn btn-sm btn-danger" @click="removeProduct(product.id)">Remove</button></td>
+                    <td><button class="btn btn-sm btn-danger" @click="removeProduct(product.id)">Remove </button></td>
                 </tr>
             </tbody>
         </table>
@@ -65,7 +69,7 @@ export default {
     },
     methods: {
         removeProduct(productId) {
-            console.log(productId)
+            ProductService.deleteProduct(productId)
         },
 
         updateProduct(productId) {
@@ -73,6 +77,9 @@ export default {
 
         }
 
+    }, 
+    mounted() {
+        console.log(this.products)
     }
 };
 </script>
