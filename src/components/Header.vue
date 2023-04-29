@@ -23,6 +23,9 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
                     <li class="nav-item">
                         <router-link class="nav-link text-muted" to="/MyOrders">My Orders</router-link>
                     </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link text-muted" to="/Register">Register</router-link>
+                    </li>
                 </ul>
             </div>
             <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse"
