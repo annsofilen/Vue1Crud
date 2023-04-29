@@ -49,6 +49,7 @@ class AuthService {
 
   static logout() {
     localStorage.removeItem('user');
+    console.log("logged out")
   }
 
   static authHeader() {

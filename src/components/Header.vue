@@ -1,5 +1,22 @@
 <script setup>
 import 'bootstrap-icons/font/bootstrap-icons.css';
+
+
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+import AuthService from '../services/AuthService';
+const store = useStore();
+const router = useRouter()
+
+const currentUser = computed(() => {
+    return store.state.auth.user;
+});
+
+function logOut() {
+    store.dispatch('auth/logout');
+    router.push('/login');
+}
 </script>
 
 <template>
@@ -25,6 +42,12 @@ import 'bootstrap-icons/font/bootstrap-icons.css';
                     </li>
                     <li class="nav-item">
                         <router-link class="nav-link text-muted" to="/Register">Register</router-link>
+                    </li>
+                    <li class="nav-item">
+                        <router-link class="nav-link text-muted" to="/Login"> Log in</router-link>
+                    </li>
+                    <li>
+                        <router-link class="nav-link text-muted" to="/"  @click="AuthService.logout"> Log out</router-link>
                     </li>
                 </ul>
             </div>

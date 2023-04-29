@@ -15,7 +15,7 @@ class ProductService {
 
     async postProduct(product) {
         console.log('product sent from productService: ' + JSON.stringify(product))
-        console.log(await axios.post(USER_API_URL + 'api/products/'));
+        //console.log((USER_API_URL + 'api/products/'));
         return await axios.post(USER_API_URL + 'api/products/', JSON.stringify(product), {
             headers: {
                 'Content-Type': 'application/json'
@@ -29,9 +29,9 @@ class ProductService {
     }
 
     async updateProduct(updateObject) {
-        console.log('product sent from productService to update: ' + JSON.stringify(updateObject))
+        console.log('product sent from productService to update: ' + (updateObject))
         console.log(USER_API_URL + 'api/products/' + updateObject.id)
-        return await axios.put(USER_API_URL + 'api/products/'+updateObject.id, (updateObject))
+        return await axios.put(USER_API_URL + 'api/products/' + updateObject.id, (updateObject))
     }
 
 
