@@ -69,7 +69,6 @@ export default {
         async removeOrder(orderId) {
             console.log('delete: ' + orderId)
             await OrderService.deleteOrder(orderId)
-            this.router.push('/MyOrders')
         }
     }
 };

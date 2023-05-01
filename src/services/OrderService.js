@@ -13,7 +13,7 @@ class OrderService {
     }
 
     async getProductsOfId(order) {
-        console.log(await axios.get(USER_API_URL + 'api/products/' + order.id));
+        console.log((USER_API_URL + 'api/products/' + order.id));
         return await axios.get(USER_API_URL + 'api/products/' + order.id, { headers: AuthService.authHeader() });
     }
 
