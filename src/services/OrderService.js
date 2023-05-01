@@ -25,7 +25,7 @@ class OrderService {
 
     async deleteOrder(orderid) {
         console.log(('delete:::' + USER_API_URL + 'api/orders/' + orderid));
-        return await axios.delete(USER_API_URL + 'api/orders/' + orderid)
+        return await axios.delete(USER_API_URL + 'api/orders/' + orderid, { headers: AuthService.authHeader() })
     }
 
     // async getAllOrdersForUser() {
