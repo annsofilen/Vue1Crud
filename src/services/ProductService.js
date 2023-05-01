@@ -21,7 +21,7 @@ class ProductService {
 
     async deleteProduct(productId) {
         console.log(USER_API_URL + 'api/products/' + productId);
-        return await axios.delete(USER_API_URL + 'api/products/' + productId)
+        return await axios.delete(USER_API_URL + 'api/products/' + productId , { headers: AuthService.authHeader() })
     }
 
     async updateProduct(updateObject) {
