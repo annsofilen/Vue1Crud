@@ -9,18 +9,14 @@ class ProductService {
 
 
     async getProductsOfId(order) {
-        console.log(await axios.get(USER_API_URL + 'api/products/' + order.id));
-        return await axios.get(USER_API_URL + 'api/products/' + order.id);
+        //console.log(await axios.get(USER_API_URL + 'api/products/' + order.id));
+        return await axios.get(USER_API_URL + 'api/products/' + order.id, { headers: AuthService.authHeader() });
     }
 
     async postProduct(product) {
-        console.log('product sent from productService: ' + JSON.stringify(product))
-        //console.log((USER_API_URL + 'api/products/'));
-        return await axios.post(USER_API_URL + 'api/products/', JSON.stringify(product), {
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
+        console.log(USER_API_URL + 'api/products/')
+        console.log((product.orderId))
+        return await axios.post(USER_API_URL + 'api/products/', (product), { headers: AuthService.authHeader() })
     }
 
     async deleteProduct(productId) {
@@ -31,7 +27,7 @@ class ProductService {
     async updateProduct(updateObject) {
         console.log('product sent from productService to update: ' + (updateObject))
         console.log(USER_API_URL + 'api/products/' + updateObject.id)
-        return await axios.put(USER_API_URL + 'api/products/' + updateObject.id, (updateObject))
+        return await axios.put(USER_API_URL + 'api/products/' + updateObject.id, (updateObject), { headers: AuthService.authHeader() })
     }
 
 

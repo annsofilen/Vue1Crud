@@ -48,7 +48,9 @@ function logOut() {
                     </li>
                     <li>
                         <router-link class="nav-link text-muted" to="/"  @click="AuthService.logout"> Log out</router-link>
-                    </li>
+                    </li >
+                    <li v-if="currentUser">current user: {{ currentUser.username }}</li>
+                    <li v-else>No user</li>
                 </ul>
             </div>
             <button class="navbar-toggler bg-dark" type="button" data-bs-toggle="collapse"

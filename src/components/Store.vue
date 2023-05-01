@@ -44,6 +44,15 @@
 <script>
 import OrderService from '../services/OrderService';
 import ProductService from '../services/ProductService';
+import AuthService from '../services/AuthService';
+
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+const store = useStore();
+
+const currentUser = computed(() => {
+    return store.state.auth.user;
+});
 
 export default {
     data() {
@@ -72,10 +81,11 @@ export default {
         },
 
         async placeOrder() {
+            //console.log('Current user: ' + currentUser.username)
             let order = {
-                //user: user
+                //user: AuthService.currentUser()
             }
-            let orderPost = (await OrderService.postOrder(order)).data.data.id
+            let orderPost = (await OrderService.postOrder(order))//.data.data.id
             // console.log(orderPost)
 
 
@@ -85,7 +95,7 @@ export default {
                     brand: prod.brand,
                     price: prod.price,
                     description: prod.description,
-                    orderId: orderPost
+                    orderId: orderPost.orderId
                 }
                 //console.log((newProduct))
                 // ProductService.postProduct(JSON.stringify(newProduct));
